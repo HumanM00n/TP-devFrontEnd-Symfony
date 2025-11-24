@@ -1,0 +1,517 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Hello HomeController!
+{% endblock %}
+
+{% block body %}
+
+{% set images = [
+    'voitureAudi.jpg',
+    'voitureDucati.jpg',
+    'voitureHonda.jpg',
+    'voitureSeat.jpg',
+    'voitureSkoda.jpg',
+    'voitureVolkswagen.png'
+] %}
+
+<section class="position-relative overflow-hidden" style="height: auto;">
+
+	<div class="bg-blur"></div>
+	<div class="position-relative z-1">
+
+		{############################# 
+		#         NAVBAR 1           #
+		##############################}
+		<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom border-2">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">
+					<b>CB AUTOMOBILE</b>
+				</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse justify-content-center text-uppercase" id="navbarNav">
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<a class="nav-link active" href="#">Qui sommes-nous ?</a>
+						</li>
+						<li class="nav-item ps-5">
+							<a class="nav-link" href="#">Neuf</a>
+						</li>
+						<li class="nav-item ps-5">
+							<a class="nav-link" href="#">Occasion</a>
+						</li>
+						<li class="nav-item ps-5">
+							<a class="nav-link" href="#">Rendez-vous atelier</a>
+						</li>
+						<li class="nav-item ps-5">
+							<a class="nav-link" href="#">Actualité</a>
+						</li>
+						<li class="nav-item ps-5">
+							<a class="nav-link" href="#">Contact</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		{############################# 
+		#         NAVBAR 2           #
+		##############################}
+		<div class="container-fluid h-auto mt-2 border-none">
+			<div class="row text-center text-light">
+				<div class="col"><img src="{{ asset('media/logo/Audi.png') }}" alt="Audi" style="height: 40px;"><p class="text-uppercase">Audi</p>
+				</div>
+				<div class="col"><img src="{{ asset('media/logo/Volkswagen.png') }}" alt="Volkswagen" style="height: 40px;"><p class="text-uppercase">Volkswagen</p>
+				</div>
+				<div class="col"><img src="{{ asset('media/logo/Seat.png') }}" alt="Seat" style="height: 40px;"><p class="text-uppercase">Seat</p>
+				</div>
+				<div class="col"><img src="{{ asset('media/logo/Skoda.png') }}" alt="Skoda" style="height: 40px;"><p class="text-uppercase">Skoda</p>
+				</div>
+				<div class="col"><img src="{{ asset('media/logo/Honda.png') }}" alt="Honda" style="height: 40px;"><p class="text-uppercase">Honda</p>
+				</div>
+				<div class="col"><img src="{{ asset('media/logo/Ducati.png') }}" alt="Ducati" style="height: 40px;"><p class="text-uppercase">Ducati</p>
+				</div>
+			</div>
+		</div>
+
+		{############################# 
+		#        GALERIE IMAGES      #
+		##############################}
+		{% set randomImages = images|shuffle %}
+		<div class="container-fluid mt-3">
+			<div class="container-sm" style="width: 600px">
+				<div class="row g-0">
+					{% for i in 0..8 %}
+						{% set image = randomImages[i % randomImages|length] %}
+						<div class="col-4 p-0">
+							<img src="{{ asset('media/voiture/' ~ image) }}" alt="{{ image|split('.')|first }}" class="w-100" style="height: 170px; background-color: var(--bs-body-bg); object-fit: cover;">
+						</div>
+					{% endfor %}
+				</div>
+				<p class="w-100 d-flex justify-content-end text-light">Sed diam rutrum rhoncus eu.</p>
+			</div>
+
+			{############################# 
+			#         BLOC TEXTE         #
+			##############################}
+			<div class="position-absolute text-light p-4 bg--dark" style="width: 550px; height: 200px; top: 250px; right: 25px;">
+				<h2 class="h4 text-uppercase fw-semibold mt-4">Une page à mettre en avant</h2>
+				<p class="fs-6">Commodo hendrerit odio diam, viverra convallis netus. Libero faucibus arcu varius ornare nisl nunc. Sit sed eu sed non.</p>
+			</div>
+
+			{############################# 
+			#         TEXT LEFT          #
+			##############################}
+			<div class="position-absolute text-light" style="top: 500px; left: 160px;">
+				<p class="fs-1 text-uppercase border-bottom border-2 border-light">cb automobile</p>
+			</div>
+
+			<div class="mw-100 d-flex" style="height: 85px">
+				<div class="w-50 d-flex justify-content-end align-items-center bg--dark text-light">
+					<p class="text-uppercase fs-3 fw-bold w-75">Lien un formulaire de contact</p>
+				</div>
+				<div class="w-50 border bg-light text-dark px-5 pt-3">
+					<p class="fs-6">
+						<b>Prise de contact pour RDV atelier (SAV)</b>tortor focibus. 
+							Purus lacus, proin pellentesque ac tincidus ut vitae. Dui interdum at fringilla vitae ut et ispum. Sit.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{############################# 
+#       SECOND SECTION       #
+##############################}
+
+<section class="bg-light py-5 position-relative" style="min-height: 100vh;">
+	<div class="container text-center mb-0 pb-0">
+		<div class="row g-4">
+
+			<!-- === PRIX EN BAISSE === -->
+			<div class="col-12 col-md-4">
+				<div class="card h-100 shadow-sm">
+					<div class="card-header text-white text-uppercase fw-semibold" style="background-color: #190885;">
+						Prix en baisse
+					</div>
+					<img src="{{ asset('media/prix/prixEnBaisseAudi.jpeg') }}" class="w-100 h-100" alt="Audi prix en baisse" style="height: 200px; object-fit: cover;">
+					<div class="card-body d-flex flex-column justify-content-between">
+						<div>
+							<h5 class="card-title text-start text-uppercase mb-2 fw-bold">Prix €</h5>
+							<div class="w-100 d-flex justify-content-between flex-row">
+								<div class="">
+									<p class="card-text text-start text-uppercase mb-3">Nom de la voiture</p>
+								</div>
+								<div class="">
+									<span class="g-2">
+										<i class="fa-regular fa-heart"></i>
+										<i class="fa-solid fa-magnifying-glass"></i>
+									</span>
+								</div>
+							</div>
+
+							<div class="my-hr w-100 m-0 mb-4"></div>
+
+							<div class="d-flex justify-content-evenly">
+								<span>2018</span>
+								<span>|</span>
+								<span>Hybride</span>
+								<span>|</span>
+								<span>54 320 km</span>
+							</div>
+						</div>
+
+						<div class="card-text text-start mt-3">
+							<p>Retrouver ce model sur le site de Saint maximin Mattis donec vel condimentum feugiat lectus augue. Nisl dolor, sed facilisi...</p>
+						</div>
+						<div class="mt-3 text-center">
+							<button href="#" class="btn-mi">En savoir plus</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- === PETIT PRIX === -->
+			<div class="col-12 col-md-4">
+				<div class="card h-100 shadow-sm">
+					<div class="card-header text-white text-uppercase fw-semibold bg-success">
+						Petit prix
+					</div>
+					<img src="{{ asset('media/prix/petitPrixVolkswagen.jpg') }}" class="card-img-top" alt="Volkswagen petit prix" style="height: 200px; object-fit: cover;">
+					<div class="card-body d-flex flex-column justify-content-between">
+						<div>
+							<h5 class="card-title text-start text-uppercase mb-2 fw-bold">Prix €</h5>
+							<div class="w-100 d-flex justify-content-between flex-row">
+								<div class="">
+									<p class="card-text text-start text-uppercase mb-3">Nom de la voiture</p>
+								</div>
+								<div class="">
+									<span class="g-2">
+										<i class="fa-regular fa-heart"></i>
+										<i class="fa-solid fa-magnifying-glass"></i>
+									</span>
+								</div>
+							</div>
+
+							<div class="my-hr w-100 m-0 mb-4"></div>
+
+							<div class="d-flex justify-content-evenly">
+								<span>2018</span>
+								<span>|</span>
+								<span>Hybride</span>
+								<span>|</span>
+								<span>54 320 km</span>
+							</div>
+						</div>
+
+						<div class="card-text text-start mt-3">
+							<p>Retrouver ce model sur le site de Saint maximin Mattis donec vel condimentum feugiat lectus augue. Nisl dolor, sed facilisi...</p>
+						</div>
+
+						<div class="mt-3 text-center">
+							<button href="#" class="btn-mi">En savoir plus</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- === PÉPITE === -->
+			<div class="col-12 col-md-4">
+				<div class="card h-100 shadow-sm">
+					<div class="card-header text-dark text-uppercase fw-semibold bg-warning">
+						Pépite
+					</div>
+					<img src="{{ asset('media/prix/pepiteSkoda.jpg') }}" class="card-img-top" alt="Skoda pépite" style="height: 200px; object-fit: cover;">
+					<div class="card-body d-flex flex-column justify-content-between">
+						<div>
+							<h5 class="card-title text-start text-uppercase mb-2 fw-bold">Prix €</h5>
+							<div class="w-100 d-flex justify-content-between flex-row">
+								<div class="">
+									<p class="card-text text-start text-uppercase mb-3">Nom de la voiture</p>
+								</div>
+								<div class="">
+									<span class="g-2">
+										<i class="fa-regular fa-heart"></i>
+										<i class="fa-solid fa-magnifying-glass"></i>
+									</span>
+								</div>
+							</div>
+
+							<div class="my-hr w-100 m-0 mb-4"></div>
+
+							<div class="d-flex justify-content-evenly">
+								<span>2018</span>
+								<span>|</span>
+								<span>Hybride</span>
+								<span>|</span>
+								<span>54 320 km</span>
+							</div>
+						</div>
+
+						<div class="card-text text-start mt-3">
+							<p>Retrouver ce model sur le site de Saint maximin Mattis donec vel condimentum feugiat lectus augue. Nisl dolor, sed facilisi...</p>
+						</div>
+						<div class="mt-3 text-center">
+							<button href="#" class="btn-mi">En savoir plus</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- === Bordereau === -->
+	<div class="w-100 bg--dark position-absolute bottom-0 start-0" style="height: 85px">
+		<div class="w-100 h-100 d-flex justify-content-center align-items-center">
+			<p class="fs-3 text-light text-uppercase m-0">
+				Trouver la voiture qui vous convient le mieux
+				<i class="fa-solid fa-chevron-right ms-2"></i>
+			</p>
+		</div>
+	</div>
+</section>
+
+{#############################
+#       THIRD SECTION        #
+##############################}
+
+<section class="py-5 px-3 position-relative overflow-hidden d-flex justify-content-center align-items-center" style="min-height: 90vh;">
+
+	<div class="bg-blur"></div>
+	<div class="position-relative z-1">
+		<div class="d-flex justify-content-center align-items-center flex-wrap gap-4">
+
+			<!-- Image gauche -->
+			<div class="d-flex align-items-center justify-content-center overflow-hidden rounded shadow-sm" style="width: 380px; height: 500px;">
+				<img src="{{ asset('media/section3/imgCamionetteHandicape.jpg') }}" alt="Une camionnette pour les personnes atteintes d'un handicap" class="img-fluid w-100 h-100 object-fit-cover hover-zoom">
+			</div>
+
+			<!-- Bloc central interactif -->
+			<div class="position-relative rounded shadow-lg overflow-hidden" style="width: 400px; height: 500px;">
+				<!-- Image visible -->
+				<img src="{{ asset('media/section3/imgEssaieVehicule.jpg') }}" class="img-fluid w-100 h-100 object-fit-cover"
+				alt="Deux personnes qui parlent, une dans une voiture vitre baissée et l'autre à l’extérieur">
+
+				<!-- Overlay (visible uniquement au hover) -->
+				<div class="overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center text-center text-white px-4 bg-dark bg-opacity-75">
+					<h5 class="fw-bold mb-3">Essais de véhicules neufs sur RDV</h5>
+					<p class="small mb-3">
+						Sit cras est amet magna malesuada. Augue nam volutpat sed egestas ipsum lacus. 
+											Vel venenatis, elementum, facilisi morbi amet integer. Rutrum nunc egestas dui scelerisque. 
+											Risus duis eget arcu velit etiam duis aliquam. Sed mauris commodo fames feugiat non ultricies. 
+											Dolor semper aliquet risus et.
+					</p>
+					<a href="#" class="text-uppercase fw-semibold text-white text-decoration-none mb-2">
+						Nous contacter
+					</a>
+					<span class="fs-4"><i class="fa-solid fa-chevron-down" class="text-light"></i></span>
+				</div>
+			</div>
+
+			<!-- Image droite -->
+			<div class="d-flex align-items-center justify-content-center overflow-hidden rounded shadow-sm" style="width: 380px; height: 500px;">
+				<img src="{{ asset('media/section3/imgDroiteSec3.jpg') }}" alt="Groupe de voitures vues de face au crépuscule" class="img-fluid w-100 h-100 object-fit-cover hover-zoom">
+			</div>
+
+		</div>
+	</div>
+</section>
+
+
+{#############################
+#       FOURTH SECTION        #
+##############################}
+
+<section class="h-auto px-3 py-2 bg-light">
+	<div class="d-flex justify-content-center align-items-center flex-column" style="margin-bottom: 150px">
+		<p class="text-center text-uppercase fw-bold fs-5">Information sur cb automobile</p>
+		<div class="row w-75">
+			<div class="col">
+				<div id="map" style="width: 100%; height: 500px;"></div>
+				<div class="w-full d-flex justify-content-center bg--dark text-light">
+					<p class="text-uppercase mt-2 fs-5">Link page qui sommes nous <span class="fs-6"><i class="fa-solid fa-chevron-right ms-2"></i></span></p>
+				</div>
+			</div>
+			<div class="col pt-5 text-start">
+				<p class="fw-semibold" style="padding-left: 5%;">informations pratique du groupe</p>
+				<p style="padding-right: 25%; padding-left: 5%;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta. <br><br>
+				Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam porttitor mauris, quis sollicitudin sapien justo in libero. <br><br>
+				Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi 
+				architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos 
+				qui ratione voluptatem sequi nesciunt.<br><br>
+				</p>
+			</div>
+		</div>
+
+
+		<div class="row w-50" style="margin-top: 120px">
+			<div class="col">
+				<img src="{{ asset('media/section4/espace-st-maximin-audi.png') }}" 
+					class="img-fluid object-fit-cover" 
+					alt="Photo de l'exterieur de la concession Audi à Sainty-Maximin"
+					style="height: 95%; width: 95%;"
+				/>
+			</div>
+			<div class="col position-relative">
+				<p class="text-uppercase text-start fw-bolder">Espace Saint Maximin</p>
+				<p>Ornare dapidus sit pellentesque nisl dolor. Neque, aliquet ultricies in sit tristique.
+				Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam porttitor mauris, quis sollicitudin sapien justo in libero.</p>
+
+			<p class="text-uppercase fw-bolder position-absolute bottom-0"><i class="fa-solid fa-chevron-left me-3"></i>Lien vers la page de la concession</p>
+			</div>
+		</div>
+
+		<div class="row w-50" style="margin-top: 90px">
+			<div class="col ">
+				<p class="text-uppercase text-start fw-bolder">Espace Saint Maximin</p>
+				<p>Ornare dapidus sit pellentesque nisl dolor. Neque, aliquet ultricies in sit tristique.
+				Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam porttitor mauris, quis sollicitudin sapien justo in libero.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta.</p>
+
+				<p class="text-uppercase fw-bolder">Lien vers la page de la concession<i class="fa-solid fa-chevron-right ms-3"></i></p>
+			</div>
+
+			<div class="col" style="">
+				<img src="{{ asset('media/section4/espace-st-maximim-seat.jpg ') }}" 
+					class="img-fluid object-fit-cover" 
+					alt="Photo de l'exterieur de la concession Seat à Sainty-Maximin" 
+					style="height: 95%; width: 95%;"/>
+			</div>
+		</div>
+
+
+		<div class="row w-50" style="margin-top: 90px">
+			<div class="col" style="">
+				<img src="{{ asset('media/section4/espace-saint-maximin-ducatti.jpg ') }}" 
+					class="img-fluid object-fit-cover" 
+					alt="Photo de l'exterieur de la concession Seat à Sainty-Maximin" 
+					style="height: 95%; width: 95%;"/>
+			</div>
+			
+			<div class="col position-relative">
+				<p class="text-uppercase text-start fw-bolder">Apogée motors</p>
+				<p>Ornare dapidus sit pellentesque nisl dolor. Neque, aliquet ultricies in sit tristique.
+				Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam porttitor mauris, quis sollicitudin sapien justo in libero.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta.</p>
+
+				<p class="text-uppercase fw-bolder position-absolute bottom-0">Lien vers la page de la concession<i class="fa-solid fa-chevron-right ms-2"></i></p>
+			</div>
+		</div>	
+	</div>
+</section>
+
+<!-- === Bordereau === -->
+<section class="position-relative overflow-hidden" style="height: 275px; ">
+	<div class="w-100 h-100 bg--dark position-relative bottom-0 start-0">
+		<div class="bg-blur"></div>
+
+		<div class="h-100 d-flex justify-content-center align-items-center position-relative z-1 text-start text-light">
+			<i class="fa-solid fa-chevron-left fs-1 me-5"></i>
+			<p class="w-50 fs-6 lh-md">
+				Ornare dapidus sit pellentesque nisl dolor. Neque, aliquet ultricies in sit tristique.
+				Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam porttitor mauris, quis sollicitudin sapien justo in libero
+			</p>
+			<i class="fa-solid fa-chevron-right fs-1 ms-5"></i>
+		</div>
+	</div>
+</section>
+
+{#############################
+#       FIFTH SECTION        #
+##############################}
+<section class="border border-primary bg-light py-5 px-3 position-relative d-flex justify-content-center align-items-center" style="min-height: 90vh; margin-top: 150px">
+	<div class="border border-danger w-75">
+		<div class="border border-success">
+			<div class="border border-dark" style="">
+				<img src="{{ asset('media/section5/voiture-en-foret.png') }}" alt="Audi prix en baisse" class="object-fit-cover w-100" style="">
+			</div>
+
+			<div class="border border-warning">
+				<h3 class="text-uppercase fs-5 fw-bolder">Une actualité</h3>
+				<p></p>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<style>
+	.bg-blur {
+		position: absolute;
+		inset: 0;
+		background-image: url('{{ asset('media/fond-de-page.jpeg') }}');
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		filter: blur(8px);
+		transform: scale(1.1);
+		z-index: 0;
+	}
+
+	section > .position-relative {
+		z-index: 1;
+	}
+
+	.bg--dark {
+		background-color: #000000ff;
+	}
+
+	.my-hr {
+		border: 0;
+		border-top: 2px solid #000000ff;
+		height: 0;
+		margin-left: 15px;
+	}
+
+	.annonceType {
+		width: 100%;
+		height: 30px;
+		display: flex;
+		justify-content: center;
+	}
+
+	.annonceType p {
+		color: #fff;
+		margin: 0;
+		line-height: 30px;
+	}
+
+	.btn-mi {
+		width: 100%;
+		height: 40px;
+		text-transform: uppercase;
+		color: #fff;
+		border: none;
+		background-color: #000000ff;
+		cursor: pointer;
+		transition: background-color 0.3s ease;
+	}
+
+	.btn-mi:hover {
+		background-color: #333333;
+	}
+
+	.hover-zoom {
+		transition: transform 0.4s ease;
+	}
+	.hover-zoom:hover {
+		transform: scale(1.05);
+	}
+
+	.overlay {
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 0.5s ease, visibility 0.5s ease;
+	}
+
+	.position-relative:hover .overlay {
+		opacity: 1;
+		visibility: visible;
+	}
+</style>
+
+{% endblock %}
+

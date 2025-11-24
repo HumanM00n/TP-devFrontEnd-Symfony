@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Create Country{% endblock %}
+
+{% block body %}    
+    <a href="{{ path('app_country_create') }}">Return to country list</a>
+
+    {{ form(form) }}
+{% endblock %}

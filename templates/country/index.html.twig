@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Country List{% endblock %}
+
+{% block body %}
+
+    <h1> Country List </h1>
+
+    <a href="{{ path('app_country_create') }}">Create a country</a>
+
+    {# Donne des instructions #}
+    {% for country in countryList %}
+
+        {# Accède à une donnée, accède à une variable #}
+        <li>{{ country.iso }} - {{ country.name }}</li>
+
+    {% endfor %}
+
+
+{% endblock %}

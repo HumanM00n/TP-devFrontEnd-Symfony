@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Country List{% endblock %}
+
+{% block body %}
+
+    <h1> Postal List </h1>
+
+    <a href="{{ path('app_postal_create') }}">Create postal</a>
+
+    {% for postal in postalList  %}
+        {# Accède à une donnée, accède à une variable #}
+        <li>{{ postal.address }} - {{ postal.code }} - {{ postal.city }}</li>
+    {% endfor %}
+
+
+{% endblock %}
