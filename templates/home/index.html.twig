@@ -137,18 +137,18 @@
 					<div class="card-header text-white text-uppercase fw-semibold" style="background-color: #190885;">
 						Prix en baisse
 					</div>
-					<img src="{{ asset('media/prix/prixEnBaisseAudi.jpeg') }}" class="w-100 h-100" alt="Audi prix en baisse" style="height: 200px; object-fit: cover;">
+					<img src="{{ asset('media/prix/prixEnBaisseAudi.jpeg') }}" class="card-img-top" alt="Audi prix en baisse" style="height: 200px; object-fit: cover;">
 					<div class="card-body d-flex flex-column justify-content-between">
 						<div>
 							<h5 class="card-title text-start text-uppercase mb-2 fw-bold">Prix €</h5>
 							<div class="w-100 d-flex justify-content-between flex-row">
-								<div class="">
+								<div>
 									<p class="card-text text-start text-uppercase mb-3">Nom de la voiture</p>
 								</div>
-								<div class="">
+								<div>
 									<span class="g-2">
-										<i class="fa-regular fa-heart"></i>
-										<i class="fa-solid fa-magnifying-glass"></i>
+										<i class="fa-regular fa-heart" style="cursor: pointer;"></i>
+										<i class="fa-solid fa-magnifying-glass" style="cursor: pointer;"></i>
 									</span>
 								</div>
 							</div>
@@ -185,13 +185,13 @@
 						<div>
 							<h5 class="card-title text-start text-uppercase mb-2 fw-bold">Prix €</h5>
 							<div class="w-100 d-flex justify-content-between flex-row">
-								<div class="">
+								<div>
 									<p class="card-text text-start text-uppercase mb-3">Nom de la voiture</p>
 								</div>
-								<div class="">
+								<div>
 									<span class="g-2">
-										<i class="fa-regular fa-heart"></i>
-										<i class="fa-solid fa-magnifying-glass"></i>
+										<i class="fa-regular fa-heart" style="cursor: pointer;"></i>
+										<i class="fa-solid fa-magnifying-glass" style="cursor: pointer;"></i>
 									</span>
 								</div>
 							</div>
@@ -229,13 +229,13 @@
 						<div>
 							<h5 class="card-title text-start text-uppercase mb-2 fw-bold">Prix €</h5>
 							<div class="w-100 d-flex justify-content-between flex-row">
-								<div class="">
+								<div>
 									<p class="card-text text-start text-uppercase mb-3">Nom de la voiture</p>
 								</div>
-								<div class="">
+								<div>
 									<span class="g-2">
-										<i class="fa-regular fa-heart"></i>
-										<i class="fa-solid fa-magnifying-glass"></i>
+										<i class="fa-regular fa-heart" style="cursor: pointer;"></i>
+										<i class="fa-solid fa-magnifying-glass" style="cursor: pointer;"></i>
 									</span>
 								</div>
 							</div>
@@ -325,7 +325,7 @@
 ##############################}
 
 <section class="h-auto px-3 py-2 bg-light">
-	<div class="d-flex justify-content-center align-items-center flex-column" style="margin-bottom: 150px">
+	<div class="d-flex justify-content-center align-items-center flex-column mb-5">
 		<p class="text-center text-uppercase fw-bold fs-5">Information sur cb automobile</p>
 		<div class="row w-75">
 			<div class="col">
@@ -403,7 +403,7 @@
 </section>
 
 <!-- === Bordereau === -->
-<section class="position-relative overflow-hidden" style="height: 275px; ">
+<section class="position-relative overflow-hidden" style="height: 275px;">
 	<div class="w-100 h-100 bg--dark position-relative bottom-0 start-0">
 		<div class="bg-blur"></div>
 
@@ -413,7 +413,7 @@
 				Ornare dapidus sit pellentesque nisl dolor. Neque, aliquet ultricies in sit tristique.
 				Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam porttitor mauris, quis sollicitudin sapien justo in libero
 			</p>
-			<i class="fa-solid fa-chevron-right fs-1 ms-5"></i>
+			<span><i class="fa-solid fa-chevron-right fs-1 ms-5"></i></span>
 		</div>
 	</div>
 </section>
@@ -421,20 +421,154 @@
 {#############################
 #       FIFTH SECTION        #
 ##############################}
-<section class="border border-primary bg-light py-5 px-3 position-relative d-flex justify-content-center align-items-center" style="min-height: 90vh; margin-top: 150px">
-	<div class="border border-danger w-75">
-		<div class="border border-success">
-			<div class="border border-dark" style="">
-				<img src="{{ asset('media/section5/voiture-en-foret.png') }}" alt="Audi prix en baisse" class="object-fit-cover w-100" style="">
-			</div>
+<section class="bg-light py-5 px-3 mt-5 d-flex justify-content-center align-items-center" style="min-height: 90vh;">
+	<div class="w-75">
+		<div>
+			<img src="{{ asset('media/section5/voiture-en-foret.png') }}" alt="Audi prix en baisse" class="object-fit-fill w-100" style="height: 650px">
+		</div>
 
-			<div class="border border-warning">
-				<h3 class="text-uppercase fs-5 fw-bolder">Une actualité</h3>
-				<p></p>
+		<div class="mt-2 position-relative">
+			<h3 class="text-uppercase fs-5 fw-bolder">Une actualité</h3>
+			<p class="text-body-secondary">Elit neque pellentesque amet, pharetra diam, pellentesque tempus.</p>
+			<span class="position-absolute start-95 top-25"><i class="fa-solid fa-chevron-right fs-2"></i></span>
+		</div>
+	</div>
+</section>
+
+
+{#############################
+#       SIXTH SECTION        #
+##############################}
+<section class="position-relative overflow-hidden py-4" style="height: 550px;">
+
+	<div class="bg-blur"></div>
+	<div class="position-relative z-1 text-light">
+		<div class="w-50 d-flex justify-content-end align-items-center gap-3 text-uppercase position-relative">
+			<p class="fw-semibold fs-5">Les actualités</p>
+			<p class="text-light fs-6">Page actualité</p>
+			<i class="fa-solid fa-chevron-right fs-6 position-relative" style="bottom: 7px;"></i>
+		</div>
+		<div id="articlesCarousel" class="carousel slide" data-bs-ride="carousel">
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<div class="d-flex gap-3">
+						<!-- CARD 1 -->
+						<div class="w-25 overflow-hidden position-relative" style="height: 400px;">
+							<img src="{{ asset('media/section6/concession-ducatti.jpg') }}" alt="Photo de la concession Ducatti" class="w-100 h-100 object-fit-cover">
+							<div class="overlay-text position-absolute bottom-0 start-0 w-100 p-4">
+								<h3 class="text-white fw-bold text-uppercase">Un article</h3>
+								<p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							</div>
+						</div>
+
+						<!-- CARD 2 -->
+						<div class="w-25 overflow-hidden position-relative position-relative" style="height: 400px;">
+							<img src="{{ asset('media/section6/concession-Volkswagen.jpg') }}" alt="Photo de la concession Volkswagen" class="w-100 h-100 object-fit-cover">
+							<div class="overlay-text position-absolute bottom-0 start-0 w-100 p-4">
+								<h3 class="text-white fw-bold text-uppercase">Un article</h3>
+								<p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							</div>
+						</div>
+
+						<!-- CARD 3 -->
+						<div class="w-25 overflow-hidden position-relative position-relative" style="height: 400px;">
+							<img src="{{ asset('media/section6/voitureVolkswagen.png') }}" alt="Photo de la voiture Volkswagen Golf Gti noir" class="w-100 h-100 object-fit-cover">
+							<div class="overlay-text position-absolute bottom-0 start-0 w-100 p-4">
+								<h3 class="text-white fw-bold text-uppercase">Un article</h3>
+								<p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							</div>
+						</div>
+
+						<!-- CARD 4 -->
+						<div class="w-25 overflow-hidden position-relative position-relative" style="height: 400px;">
+							<img src="{{ asset('media/section6/volkswagen-couche-de-soleil.jpg') }}" alt="Photo d'une voiture jauen sur la route avec en font un arc-en-ciel et sur au bord de mer" class="w-100 h-100 object-fit-cover">
+							<div class="overlay-text position-absolute bottom-0 start-0 w-100 p-4">
+								<h3 class="text-white fw-bold text-uppercase">Un article</h3>
+								<p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<!-- DUPLIQUE UN DEUXIÈME SLIDE POUR L’AUTO-SCROLL -->
+				<div class="carousel-item">
+					<div class="d-flex gap-3">
+
+						<!-- IMG 1 -->
+						<div class="w-25 overflow-hidden position-relative position-relative" style="height: 400px;">
+							<img src="{{ asset('media/section6/voitureVolkswagen.png') }}" alt="Photo de la voiture Volkswagen Golf Gti noir" class="w-100 h-100 object-fit-cover">
+							<div class="overlay-text position-absolute bottom-0 start-0 w-100 p-4">
+								<h3 class="text-white fw-bold text-uppercase">Un article</h3>
+								<p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							</div>
+						</div>
+
+						<!-- IMG 2 (Concession Ducati) -->
+						<div class="w-25 overflow-hidden position-relative position-relative" style="height: 400px;">
+							<img src="{{ asset('media/section6/concession-ducatti.jpg') }}" alt="Photo de la concession Ducatti" class="w-100 h-100 object-fit-cover">
+							<div class="overlay-text position-absolute bottom-0 start-0 w-100 p-4">
+								<h3 class="fw-bold text-uppercase">Un article</h3>
+								<p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							</div>
+						</div>
+
+						<!-- IMG 3 (Voiture coucher de soleil) -->
+						<div class="w-25 overflow-hidden position-relative position-relative" style="height: 400px;">
+							<img src="{{ asset('media/section6/volkswagen-couche-de-soleil.jpg') }}" alt="Photo d'une voiture jaune sur la route avec en font un arc-en-ciel et sur au bord de mer" class="w-100 h-100 object-fit-cover">
+							<div class="overlay-text position-absolute bottom-0 start-0 w-100 p-4">
+								<h3 class="text-white fw-bold text-uppercase">Un article</h3>
+								<p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							</div>
+						</div>
+
+						<!-- IMG 4 (Concession Volkswagen) -->
+						<div class="w-25 overflow-hidden position-relative position-relative" style="height: 400px;">
+							<img src="{{ asset('media/section6/concession-Volkswagen.jpg') }}" alt="Photo de la concession Volkswagen" class="w-100 h-100 object-fit-cover">
+							<div class="overlay-text position-absolute bottom-0 start-0 w-100 p-4">
+								<h3 class="text-white fw-bold text-uppercase">Un article</h3>
+								<p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							</div>
+						</div>
+
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
 </section>
+
+
+{#############################
+#       SEVENTH SECTION        #
+##############################}
+<section class="bg-light py-5 position-relative" style="min-height: 90vh;">
+	<div class="border border-primary container-fluid">
+		<div class="col">
+			<div class="row">
+				<h2 class="text-uppercase fw-bolder fs-2">Formulaire de contact</h2>
+			</div>
+
+			<div class="row">
+				<p>je m'adresse à la concession</p>
+				
+			</div>
+			
+			<div class="row"></div>
+		</div>
+	</div>
+</section>
+
+
+
+
+<script>
+	const myCarousel = document.querySelector('#articlesCarousel');
+	new bootstrap.Carousel(myCarousel, {
+		interval: 2000, 
+		ride: 'carousel'
+	})
+</script>
 
 
 <style>
@@ -463,6 +597,16 @@
 		border-top: 2px solid #000000ff;
 		height: 0;
 		margin-left: 15px;
+	}
+
+	.carousel-card::after  {
+    	content: "";
+    	position: absolute;
+    	top: 0;
+    	left: 0;
+   		width: 100%;
+    	height: 100%;
+    	background: linear-gradient(to bottom, rgba(0,0,0,0) 20%, rgba(0,0,0,0.65) 100%);
 	}
 
 	.annonceType {
@@ -510,6 +654,85 @@
 		opacity: 1;
 		visibility: visible;
 	}
+
+
+/* EXTENDS BOOTSTRAP */
+
+/* =============================== */
+/*            MARGIN (%)           */
+/* =============================== */
+
+/* TOP */
+.mt-25 { margin-top: 25%; }
+.mt-50 { margin-top: 50%; }
+.mt-75 { margin-top: 75%; }
+
+/* RIGHT */
+.me-25 { margin-right: 25%; }
+.me-50 { margin-right: 50%; }
+.me-75 { margin-right: 75%; }
+
+/* BOTTOM */
+.mb-25 { margin-bottom: 25%; }
+.mb-50 { margin-bottom: 50%; }
+.mb-75 { margin-bottom: 75%; }
+
+/* LEFT */
+.ms-25 { margin-left: 25%; }
+.ms-50 { margin-left: 50%; }
+.ms-75 { margin-left: 75%; }
+
+
+
+/* =============================== */
+/*          PADDING (%)            */
+/* =============================== */
+
+/* TOP */
+.pt-25 { padding-top: 25%; }
+.pt-50 { padding-top: 50%; }
+.pt-75 { padding-top: 75%; }
+
+/* RIGHT */
+.pe-25 { padding-right: 25%; }
+.pe-50 { padding-right: 50%; }
+.pe-75 { padding-right: 75%; }
+
+/* BOTTOM */
+.pb-25 { padding-bottom: 25%; }
+.pb-50 { padding-bottom: 50%; }
+.pb-75 { padding-bottom: 75%; }
+
+/* LEFT */
+.ps-25 { padding-left: 25%; }
+.ps-50 { padding-left: 50%; }
+.ps-75 { padding-left: 75%; }
+
+
+
+/* =============================== */
+/*        POSITION (%)             */
+/* =============================== */
+/* (pour les position-absolute)   */
+/* =============================== */
+
+.top-25 { top: 25%; }
+.top-50 { top: 50%; }
+.top-75 { top: 75%; }
+
+.end-25 { right: 25%; }
+.end-50 { right: 50%; }
+.end-75 { right: 75%; }
+
+.bottom-25 { bottom: 25%; }
+.bottom-50 { bottom: 50%; }
+.bottom-75 { bottom: 75%; }
+
+.start-25 { left: 25%; }
+.start-50 { left: 50%; }
+.start-75 { left: 75%; }
+.start-95 { left: 95%; }
+
 </style>
 
 {% endblock %}
