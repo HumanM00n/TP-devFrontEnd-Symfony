@@ -542,24 +542,125 @@
 {#############################
 #       SEVENTH SECTION        #
 ##############################}
-<section class="bg-light py-5 position-relative" style="min-height: 90vh;">
-	<div class="border border-primary container-fluid">
-		<div class="col">
-			<div class="row">
+<section class="bg-light py-5" style="min-height: 90vh;">
+	<div class="container-fluid h-75">
+		<div class="col d-flex flex-column justify-content-center align-items-center">
+			<div class="row mt-4">
 				<h2 class="text-uppercase fw-bolder fs-2">Formulaire de contact</h2>
 			</div>
 
-			<div class="row">
-				<p>je m'adresse à la concession</p>
-				
+			<div class="row w-50 mt-5">
+				<div class="row">
+					<p>je m'adresse à la concession :</p>
+				</div>
+				<div class="row mb-3">
+					<select class="form-select w-100" aria-label="Un bouton avec plusieurs choix possibles pour s'adresser à une concession">
+						<option value="" class="my-hover-select" disabled selected hidden>choisir votre destinataire</option>
+						<option value="1" class="my-hover-select">volkswagen - Espace Saint Maximin</option>
+						<option value="2" class="my-hover-select">Audi - Espace Saint Maximin</option>
+						<option value="3" class="my-hover-select">Seat - Saint Maximin Automobiles</option>
+						<option value="4" class="my-hover-select">Skoda - Saint Maximin Automobiles</option>
+						<option value="5" class="my-hover-select">Honda - Apogès Motors</option>
+						<option value="6" class="my-hover-select">Ducatti - Apogès Motors</option>
+					</select>
+				</div>
 			</div>
-			
-			<div class="row"></div>
+
+			<div class="row w-50 mt-15">
+				<p>objet :</p>
+				<div class="row mb-3">
+					<select class="form-select" aria-label="Un bouton avec plusieurs choix possibles pour choisir un objet">
+						<option value="" disabled selected hidden>choisir votre objet</option>
+					</select>
+				</div>
+			</div>
 		</div>
 	</div>
 </section>
 
 
+{#############################
+#       HEIGHTH SECTION        #
+##############################}
+
+<section class="bg-body-secondary py-5" style="min-height: 90vh">
+	<div class="container-xl bg-light w-75 p-5 shadow-lg bg-body-tertiary rounded">
+		<div class="col">
+
+			<div class="row">
+				<h2 class="text-uppercase fw-bolder mb-4">Prendre rendez-vous</h2>
+			</div>
+
+			{# PRENOM #}
+			<div class="row form-floating mb-3">
+				<input type="text" class="form-control input-form-rdv" id="floatingInput"></input>
+				<label for="floatingInput" class="text-black ps-0">Prénom</label>
+			</div>
+
+			{# NOM #}
+			<div class="row form-floating mb-3">
+				<input type="text" class="form-control input-form-rdv" id="floatingInput"></input>
+				<label for="floatingInput" class="text-black ps-0">Nom</label>
+			</div>
+
+			{# ADRESSE MAIL #}
+			<div class="row form-floating mb-3">
+				<input type="email" class="form-control input-form-rdv" id="floatingInput"></input>
+				<label for="floatingInput" class="text-black ps-0">Adresse mail</label>
+			</div>
+
+			{# N° TELEPHONE #}
+			<div class="row form-floating mb-3">
+				<input type="tel" class="form-control input-form-rdv" id="floatingInput" minlength="10" maxlength="13" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"></input>
+				<label for="floatingInput" class="text-black ps-0">Téléphone</label>
+			</div>
+
+			{# ADRESSE POSTAL #}
+			<div class="row form-floating mb-3 w-100">
+				<input type="text" class="form-control input-form-rdv fs-6" id="floatingInput"></input>
+				<label for="floatingInput" class="text-black ps-0">Adresse Postal</label>
+			</div>
+
+			{# VILLE #}
+			<div class="row gap-3">
+				<div class="row form-floating mb-3 w-75">
+					<input type="text" class="form-control input-form-rdv" id="floatingInput"></input>
+					<label for="floatingInput" class="text-black">Ville</label>
+				</div>
+
+				{# CODE POSTAL #}
+				<div class="row form-floating mb-3 w-25">
+					<input type="text" class="form-control input-form-rdv" id="floatingInput"></input>
+					<label for="floatingInput" class="text-black" minlength="5" maxlength="5" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">Code Postal</label>
+				</div>
+			</div>
+
+			{# MODELE VEHICULE #}
+			<div class="row gap-3">
+				<div class="row form-floating mb-3 w-75">
+					<input type="text" class="form-control input-form-rdv" id="floatingInput"></input>
+				<label for="floatingInput" class="text-black">Modèle du véhicule</label>
+			</div>
+
+			{# DATE ESSAIE #}
+			<div class="row form-floating mb-3 w-25">
+				<input type="date" class="form-control input-form-rdv" id="floatingInput"></input>
+			<label for="floatingInput" class="text-black">Date essaie souhaitée</label></div></div>
+
+
+			{# MESSAGE #}
+			<div class="row mt-5">
+				<p class="text-body ps-0">Message</p>
+				<textarea name="" id="content-message" class="w-100 bg-transparent border border-dark border-opacity-75 rounded-1" style="height: 150px; resize: none;"></textarea>
+			</div>
+
+			{# BOUTON #}
+			<div class="row d-flex justify-content-end mt-5">
+				<button class="btn btn-dark px-3 py-2 rounded-1 fw-semibol" style="width: 190px">Envoyer</button>
+			</div>
+		</div>
+	</div>
+</section>
 
 
 <script>
@@ -655,6 +756,18 @@
 		visibility: visible;
 	}
 
+	.my-hover-select:hover {
+		background-color: #000000ff !important;
+		color: #fff !important;
+	}
+
+	.input-form-rdv {
+		border: none;
+		border-bottom: 1px solid black;
+		border-radius: 0px;
+		background: transparent;
+	}
+
 
 /* EXTENDS BOOTSTRAP */
 
@@ -663,6 +776,8 @@
 /* =============================== */
 
 /* TOP */
+.mt-10 { margin-top: 10%; }
+.mt-15 { margin-top: 15%; }
 .mt-25 { margin-top: 25%; }
 .mt-50 { margin-top: 50%; }
 .mt-75 { margin-top: 75%; }
@@ -708,7 +823,17 @@
 .ps-50 { padding-left: 50%; }
 .ps-75 { padding-left: 75%; }
 
+/* =============================== */
+/* 		  (LEFT & RIGHT)           */
+/* =============================== */
 
+/* LEFT */
+
+.px-10 { padding-left: 10%; padding-right: 10% }
+.px-15 { padding-left: 15%; padding-right: 15%}
+.px-25 { padding-left: 25%; padding-right: 10%}
+.px-50 { padding-left: 50%; padding-right: 10%}
+.px-75 { padding-left: 75%; padding-right: 75%}
 
 /* =============================== */
 /*        POSITION (%)             */
