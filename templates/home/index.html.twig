@@ -15,7 +15,8 @@
     'voitureVolkswagen.png'
 ] %}
 
-<section class="position-relative overflow-hidden" style="height: auto;">
+
+<section class="position-relative overflow-hidden mb-4" style="height: auto;">
 
 	<div class="bg-blur"></div>
 	<div class="position-relative z-1">
@@ -61,7 +62,7 @@
 		##############################}
 		<div class="container-fluid h-auto mt-2 border-none">
 			<div class="row text-center text-light">
-				<div class="col"><img src="{{ asset('media/logo/Audi.png') }}" alt="Audi" style="height: 40px;"><p class="text-uppercase">Audi</p>
+				<div class="col"><img src="{{ asset('media/logo/Audi.png') }}" alt="Audi" style="height: 40px;"/><p class="text-uppercase">Audi</p>
 				</div>
 				<div class="col"><img src="{{ asset('media/logo/Volkswagen.png') }}" alt="Volkswagen" style="height: 40px;"><p class="text-uppercase">Volkswagen</p>
 				</div>
@@ -108,7 +109,7 @@
 				<p class="fs-1 text-uppercase border-bottom border-2 border-light">cb automobile</p>
 			</div>
 
-			<div class="mw-100 d-flex" style="height: 85px">
+			<div class="w-100 d-flex mt-5" style="height: 85px">
 				<div class="w-50 d-flex justify-content-end align-items-center bg--dark text-light">
 					<p class="text-uppercase fs-3 fw-bold w-75">Lien un formulaire de contact</p>
 				</div>
@@ -128,150 +129,85 @@
 ##############################}
 
 <section class="bg-light py-5 position-relative" style="min-height: 100vh;">
-	<div class="container text-center mb-0 pb-0">
-		<div class="row g-4">
+    <div class="container text-center mb-0 pb-0">
+        
+        <div class="row g-4" id="vehicles-container">
 
-			<!-- === PRIX EN BAISSE === -->
-			<div class="col-12 col-md-4">
-				<div class="card h-100 shadow-sm">
-					<div class="card-header text-white text-uppercase fw-semibold" style="background-color: #190885;">
-						Prix en baisse
-					</div>
-					<img src="{{ asset('media/prix/prixEnBaisseAudi.jpeg') }}" class="card-img-top" alt="Audi prix en baisse" style="height: 200px; object-fit: cover;">
-					<div class="card-body d-flex flex-column justify-content-between">
-						<div>
-							<h5 class="card-title text-start text-uppercase mb-2 fw-bold">Prix €</h5>
-							<div class="w-100 d-flex justify-content-between flex-row">
-								<div>
-									<p class="card-text text-start text-uppercase mb-3">Nom de la voiture</p>
-								</div>
-								<div>
-									<span class="g-2">
-										<i class="fa-regular fa-heart" style="cursor: pointer;"></i>
-										<i class="fa-solid fa-magnifying-glass" style="cursor: pointer;"></i>
-									</span>
-								</div>
-							</div>
+            {# Boucle génération des cartes #}
+            {% for vehicle in vehicles %}
+                
+                {# Détermine si la carte doit être cachée initialement. Les 3 premières sont visibles (index 0, 1, 2) #}
+                {% set isHidden = loop.index0 >= 3 ? 'd-none' : '' %}
 
-							<div class="my-hr w-100 m-0 mb-4"></div>
+                <div class="col-12 col-md-4 vehicle-card {{ isHidden }}"> 
+                    <div class="card h-100 shadow-sm">
+                        
+                        <div class="card-header text-white text-uppercase fw-semibold" {{ vehicle.category_class | raw }}>
+                            {{ vehicle.category_label }}
+                        </div>
+                        
+                        <img src="{{ vehicle.image_url }}" class="card-img-top" alt="{{ vehicle.title }}" style="height: 200px; object-fit: cover;">
+                        
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <div>
+                                <h5 class="card-title text-start text-uppercase mb-2 fw-bold">{{ vehicle.price | number_format(0, ',', ' ') }} €</h5>
+                                <div class="w-100 d-flex justify-content-between flex-row">
+                                    <div>
+                                        <p class="card-text text-start text-uppercase mb-3">{{ vehicle.title }}</p>
+                                    </div>
+                                    <div>
+                                        <span class="g-2">
+                                            <i class="fa-regular fa-heart" style="cursor: pointer;"></i>
+                                            <i class="fa-solid fa-magnifying-glass" style="cursor: pointer;"></i>
+                                        </span>
+                                    </div>
+                                </div>
 
-							<div class="d-flex justify-content-evenly">
-								<span>2018</span>
-								<span>|</span>
-								<span>Hybride</span>
-								<span>|</span>
-								<span>54 320 km</span>
-							</div>
-						</div>
+                                <div class="my-hr w-100 m-0 mb-4"></div>
 
-						<div class="card-text text-start mt-3">
-							<p>Retrouver ce model sur le site de Saint maximin Mattis donec vel condimentum feugiat lectus augue. Nisl dolor, sed facilisi...</p>
-						</div>
-						<div class="mt-3 text-center">
-							<button href="#" class="btn-mi">En savoir plus</button>
-						</div>
-					</div>
-				</div>
-			</div>
+                                <div class="d-flex justify-content-evenly">
+                                    <span>{{ vehicle.year }}</span>
+                                    <span>|</span>
+                                    <span>{{ vehicle.fuel }}</span>
+                                    <span>|</span>
+                                    <span>{{ vehicle.mileage | number_format(0, ',', ' ') }} km</span>
+                                </div>
+                            </div>
 
-			<!-- === PETIT PRIX === -->
-			<div class="col-12 col-md-4">
-				<div class="card h-100 shadow-sm">
-					<div class="card-header text-white text-uppercase fw-semibold bg-success">
-						Petit prix
-					</div>
-					<img src="{{ asset('media/prix/petitPrixVolkswagen.jpg') }}" class="card-img-top" alt="Volkswagen petit prix" style="height: 200px; object-fit: cover;">
-					<div class="card-body d-flex flex-column justify-content-between">
-						<div>
-							<h5 class="card-title text-start text-uppercase mb-2 fw-bold">Prix €</h5>
-							<div class="w-100 d-flex justify-content-between flex-row">
-								<div>
-									<p class="card-text text-start text-uppercase mb-3">Nom de la voiture</p>
-								</div>
-								<div>
-									<span class="g-2">
-										<i class="fa-regular fa-heart" style="cursor: pointer;"></i>
-										<i class="fa-solid fa-magnifying-glass" style="cursor: pointer;"></i>
-									</span>
-								</div>
-							</div>
+                            <div class="card-text text-start mt-3">
+                                <p>{{ vehicle.description }}</p>
+                            </div>
+                            <div class="mt-3 text-center">
+                                <button href="#" class="btn-mi">En savoir plus</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %} 
 
-							<div class="my-hr w-100 m-0 mb-4"></div>
+        </div>
+        
+        <div class="row mt-4">
+            <div class="col-12 text-center">
+                {# Condition Twig pour masquer le bouton s'il n'y a pas plus de 3 véhicules #}
+                {% if vehicles | length > 3 %}
+                    <button id="load-more-btn" class="btn btn-primary btn-lg">
+                        Charger 3 véhicules de plus
+                    </button>
+                {% endif %}
+            </div>
+        </div>
 
-							<div class="d-flex justify-content-evenly">
-								<span>2018</span>
-								<span>|</span>
-								<span>Hybride</span>
-								<span>|</span>
-								<span>54 320 km</span>
-							</div>
-						</div>
+    </div>
 
-						<div class="card-text text-start mt-3">
-							<p>Retrouver ce model sur le site de Saint maximin Mattis donec vel condimentum feugiat lectus augue. Nisl dolor, sed facilisi...</p>
-						</div>
-
-						<div class="mt-3 text-center">
-							<button href="#" class="btn-mi">En savoir plus</button>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<!-- === PÉPITE === -->
-			<div class="col-12 col-md-4">
-				<div class="card h-100 shadow-sm">
-					<div class="card-header text-dark text-uppercase fw-semibold bg-warning">
-						Pépite
-					</div>
-					<img src="{{ asset('media/prix/pepiteSkoda.jpg') }}" class="card-img-top" alt="Skoda pépite" style="height: 200px; object-fit: cover;">
-					<div class="card-body d-flex flex-column justify-content-between">
-						<div>
-							<h5 class="card-title text-start text-uppercase mb-2 fw-bold">Prix €</h5>
-							<div class="w-100 d-flex justify-content-between flex-row">
-								<div>
-									<p class="card-text text-start text-uppercase mb-3">Nom de la voiture</p>
-								</div>
-								<div>
-									<span class="g-2">
-										<i class="fa-regular fa-heart" style="cursor: pointer;"></i>
-										<i class="fa-solid fa-magnifying-glass" style="cursor: pointer;"></i>
-									</span>
-								</div>
-							</div>
-
-							<div class="my-hr w-100 m-0 mb-4"></div>
-
-							<div class="d-flex justify-content-evenly">
-								<span>2018</span>
-								<span>|</span>
-								<span>Hybride</span>
-								<span>|</span>
-								<span>54 320 km</span>
-							</div>
-						</div>
-
-						<div class="card-text text-start mt-3">
-							<p>Retrouver ce model sur le site de Saint maximin Mattis donec vel condimentum feugiat lectus augue. Nisl dolor, sed facilisi...</p>
-						</div>
-						<div class="mt-3 text-center">
-							<button href="#" class="btn-mi">En savoir plus</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- === Bordereau === -->
-	<div class="w-100 bg--dark position-relative" style="height: 85px; top: 48px">
-		<div class="w-100 h-100 d-flex justify-content-center align-items-center">
-			<p class="fs-3 text-light text-uppercase m-0">
-				Trouver la voiture qui vous convient le mieux
-				<i class="fa-solid fa-chevron-right ms-2"></i>
-			</p>
-		</div>
-	</div>
+    <div class="w-100 bg--dark position-relative" style="height: 85px; top: 48px">
+        <div class="w-100 h-100 d-flex justify-content-center align-items-center">
+            <p class="fs-3 text-light text-uppercase m-0">
+                Trouver la voiture qui vous convient le mieux
+                <i class="fa-solid fa-chevron-right ms-2"></i>
+            </p>
+        </div>
+    </div>
 </section>
 
 {#############################
@@ -329,7 +265,7 @@
 		<p class="text-center text-uppercase fw-bold fs-5">Information sur cb automobile</p>
 		<div class="row w-75">
 			<div class="col">
-				<div id="map" style="width: 100%; height: 500px;"></div>
+				<div id="map" class="w-100" style="height: 500px;"></div>
 				<div class="w-full d-flex justify-content-center bg--dark text-light">
 					<p class="text-uppercase mt-2 fs-5">Link page qui sommes nous <span class="fs-6"><i class="fa-solid fa-chevron-right ms-2"></i></span></p>
 				</div>
@@ -662,64 +598,67 @@
 	</div>
 </section>
 
+
+{#############################
+#           FOOTER           #
+##############################}
+
 <footer class="bg-light py-5">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <!-- Section Carte + Adresses -->
-            <div class="col-md-3 mb-4">
-                {# <img src="{{ asset('images/map.png') }}" alt="Carte Saint-Maximin" class="img-fluid mb-3"> #}
-				<div id="map" style="width: 50%; height: 125px;"></div>
-                
-                <p class="mb-1"><strong>ESPACE SAINT-MAXIMIN</strong><br>
-                280 rue de la Marseillaise<br>
-                60740 Saint Maximin</p>
-                
-                <p class="mb-1"><strong>SAINT-MAXIMIN AUTOMOBILES</strong><br>
-                122 rue de la Marseillaise<br>
-                60740 Saint Maximin</p>
-                
-                <p class="mb-0"><strong>APOGÉE MOTORS</strong><br>
-                170 rue de la Marseille<br>
-                60742 ST-MAXIMIN Cedex</p>
+
+            <div class="col-5"> 
+                <div class="row">
+                    <div class="col-6">
+                        <div id="footerMap" style="height: 220px;"></div> 
+					</div>
+                    <div class="col-6">
+                        <p class="mb-1">
+                            <strong>ESPACE SAINT-MAXIMIN</strong><br>
+                            280 rue de la Marseillaise<br>
+                            60740 Saint Maximin
+                        </p>
+
+                        <p class="mb-1">
+                            <strong>SAINT-MAXIMIN AUTOMOBILES</strong><br>
+                            122 rue de la Marseillaise<br>
+                            60740 Saint Maximin
+                        </p>
+
+                        <p class="mb-0">
+                            <strong>APOGÉE MOTORS</strong><br>
+                            170 rue de la Marseille<br>
+                            60742 ST-MAXIMIN Cedex
+                        </p>
+                    </div>
+                </div>
             </div>
 
-            <!-- Section Marques -->
-            <div class="col-md-3 mb-4">
+            <div class="col-2 mb-2">
                 <h5>MARQUES</h5>
                 <ul class="list-unstyled">
-                    <li>Audi</li>
-                    <li>Volkswagen</li>
-                    <li>Seat</li>
-                    <li>Skoda</li>
-                    <li>Honda</li>
-                    <li>Ducati</li>
+                    <li>Audi</li><li>Volkswagen</li><li>Seat</li>
+                    <li>Skoda</li><li>Honda</li><li>Ducati</li>
                 </ul>
             </div>
 
-            <!-- Section CB Groupe -->
-            <div class="col-md-3 mb-4">
+            <div class="col-2 mb-2">
                 <h5>CB GROUPE</h5>
                 <ul class="list-unstyled">
-                    <li>Accueil</li>
-                    <li>Qui sommes nous ?</li>
-                    <li>Occasion</li>
-                    <li>Neuf</li>
-                    <li>Service après vente</li>
-                    <li>Actualité</li>
+                    <li>Accueil</li><li>Qui sommes nous ?</li>
+                    <li>Occasion</li><li>Neuf</li>
+                    <li>Service après vente</li><li>Actualité</li>
                 </ul>
             </div>
 
-            <!-- Section En savoir plus -->
-            <div class="col-md-3 mb-4">
+            <div class="col-2 mb-2">
                 <h5>EN SAVOIR PLUS</h5>
                 <ul class="list-unstyled">
-                    <li>FAQ</li>
-                    <li>Contact</li>
-                    <li>Recrutement</li>
-                    <li>Mentions légales</li>
-                    <li>Conditions générales d'utilisation</li>
-                </ul>
+                    <li>FAQ</li><li>Contact</li><li>Recrutement</li>
+                    <li>Mentions légales</li><li>Conditions générales d'utilisation</li> </ul>
             </div>
+
+
         </div>
     </div>
 </footer>

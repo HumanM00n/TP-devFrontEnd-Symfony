@@ -23,18 +23,74 @@
 
         <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfyW9_DU_RWjX4i9OSUBLKNnhDLNWcHYY&callback=initMap"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-        <script>
-            function initMap() {
-            const position = {
+<script>
+    function initMap() {
+
+        const positionSaintMaximin = {
             lat: 49.2325935,
             lng: 2.4628570 
-            }; // Exemple Saint-Maximin
-            const map = new google.maps.Map(document.getElementById("map"), {
-            zoom: 14,
-            center: position
+        };
+
+        // map
+        const mainMapElement = document.getElementById("map");
+        if (mainMapElement) {
+            const mainMap = new google.maps.Map(mainMapElement, {
+                zoom: 14, // Zoom plus proche
+                center: positionSaintMaximin
             });
-            new google.maps.Marker({position, map, title: "Volkswagen Bégué Saint-Maximin"});
+            new google.maps.Marker({
+                position: positionSaintMaximin, 
+                map: mainMap, 
+                title: "Volkswagen Bégué Saint-Maximin"
+            });
+        }
+
+        // footerMap
+        const footerMapElement = document.getElementById("footerMap");
+        if (footerMapElement) {
+            const footerMap = new google.maps.Map(footerMapElement, {
+                zoom: 12, 
+                center: positionSaintMaximin 
+            });
+        }
+    }
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        const loadMoreBtn = document.getElementById('load-more-btn');
+        // Récupérer TOUS les véhicules, visibles et cachés
+        const vehicleCards = document.querySelectorAll('.vehicle-card');
+        
+        const loadAmount = 3; // Nombre de véhicules à charger à chaque clic
+        
+        // Déterminer combien de véhicules sont visibles initialement (3)
+        // On cherche le dernier index visible, qui est 3
+        let currentVisible = 3; 
+        
+        function loadMoreVehicles() {
+            const totalVehicles = vehicleCards.length;
+            const nextBatchEnd = currentVisible + loadAmount;
+            
+            // Afficher la prochaine série de véhicules
+            for (let i = currentVisible; i < nextBatchEnd && i < totalVehicles; i++) {
+                vehicleCards[i].classList.remove('d-none');
             }
-            </script>
+            
+            // Mettre à jour le compteur des véhicules visibles
+            currentVisible = Math.min(nextBatchEnd, totalVehicles);
+            
+            // Si tous les véhicules sont affichés, masquer le bouton
+            if (currentVisible >= totalVehicles) {
+                loadMoreBtn.style.display = 'none';
+            }
+        }
+        
+        if (loadMoreBtn) {
+            loadMoreBtn.addEventListener('click', loadMoreVehicles);
+        }
+    });
+</script>
     </body>
 </html>
